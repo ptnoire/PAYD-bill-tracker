@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payd - Easy Bill Tracking</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="src/js/controller.js"></script>
+</head>
+<body>
+    <h1>Hello</h1>
+    <h1 class="current__date">Current Date</h1>
+    <div class="topNav">
+
+    </div>
+    <div class="input__bills">
+        <form id="upload">
+            <input class="text__field inp--bill_name" name="billName" type="text" placeholder="Insert Bill Name Here"></input>
+            <input class="text__field inp--bill_amount" name="billCost" type="text" placeholder="Insert Cost of Bill Here"></input>
+            <input class="text__field inp--bill_date" name="billDate" type="date"></input>
+            <input name="reoccuring" type="checkbox">Reoccuring?</input>
+            <button class="btn btn--submit">Submit</button>
+        </form>
+    </div>
+    <div class="body">
+        <ul class="bill__list">
+
+        </ul>
+    </div>
+</body>
+</html>
