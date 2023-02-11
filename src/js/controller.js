@@ -1,24 +1,23 @@
 import listView from "../views/listView.js";
-// import { BILL_COST, BILL_DUE_DATE, BILL_LIST, BILL_NAME } from "./config.js";
-import { BILL_SUBMIT_BUTTON } from "./config.js";
+import dateView from "../views/dateView.js";
 import * as model from "./model.js"
 
-const currDate = document.querySelector('.current__date');
-const updateDate = function() {
-    const now = new Date();
-    currDate.textContent = now;
-}
-updateDate();
 
 
 const addNewBill = async function(formData) {
     await model.loadBill(formData)
     listView.render(model.state);
+    model.billLogic(model.state)
 }
 
+const paydButton = function(bill) {
+    model.billPaydToggle(bill);
+}
 
 const init = function() {
     listView._addHandlerBillSubmit(addNewBill);
+    dateView.render(model.currentDate());
+    listView._addHandlerPaydButton(paydButton);
 }
 
 init();

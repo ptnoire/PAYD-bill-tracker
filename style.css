@@ -24,3 +24,8 @@ body {
     border: 5px solid green;
     width: 50%;
 }
+
+.bill_due {
+    background-color: rgb(171, 38, 38);
+    color: beige;
+}
