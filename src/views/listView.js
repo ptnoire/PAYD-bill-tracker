@@ -28,6 +28,15 @@ class ListView extends View {
         })
     }
 
+    billPaydFeature(id) {
+        const elem = document.querySelector(`[data-bill_id="${id}"]`);
+        if(!elem.classList.contains('payd')) {
+            elem.classList.add('payd');
+        } else {
+            elem.classList.remove('payd');
+        }
+    }
+
     _generateMarkup(data) {
         console.log(data);
         return `

@@ -12,6 +12,7 @@ const addNewBill = async function(formData) {
 
 const paydButton = function(bill) {
     model.billPaydToggle(bill);
+    listView.billPaydFeature(bill)
 }
 
 const init = function() {
