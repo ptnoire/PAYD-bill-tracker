@@ -13,6 +13,7 @@ const addNewBill = async function(formData) {
     listView.billLogic(model.date, model.state);
 }
 
+
 const paydButton = function(id) {
     model.billPaydToggle(id);
     listView.billLogic(model.date, model.state, id);

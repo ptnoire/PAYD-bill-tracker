@@ -82,6 +82,7 @@ export const clearLocalStorageBills = function() {
     localStorage.clear('bills');
 }
 
+
 // clearLocalStorageBills();
 
 const init = async function() {
