@@ -50,6 +50,8 @@ class ListView extends View {
 
     reloadLocalStorage(date, data) {
         data.bills.forEach(el => {
+            // Ok ashamed a bit about this, I don't want to refactor how render works which takes in the master object of state, then pulls from the state.bill object, sue me.
+
             const objectWorkAround = {bill: {...el}};
             this.render(objectWorkAround)
             this.billLogic(date, data, el.id);

@@ -35,8 +35,6 @@ export let state = {
         amount: 0,
         dueDate: '',
         reoccuring: false,
-        extraCharges: 0,
-        index: 0,
     },
     bills: [],
     localStorage: [],
@@ -44,7 +42,7 @@ export let state = {
 
 export const loadBill = function(newBill) {
         state.bill = {
-            name: newBill.name,
+            name: newBill.title,
             amount: newBill.amount,
             dueDate: newBill.dueDate,
             id: newBill.id ? newBill.id :Date.now(),

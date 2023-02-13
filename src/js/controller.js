@@ -7,8 +7,8 @@ const clearButton = document.querySelector('.clear_local_storage');
 clearButton.addEventListener('click', model.clearLocalStorageBills)
 //
 
-const addNewBill = async function(formData) {
-    await model.loadBill(formData);
+const addNewBill = function(formData) {
+    model.loadBill(formData);
     listView.render(model.state);
     listView.billLogic(model.date, model.state);
 }
