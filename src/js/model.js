@@ -90,6 +90,8 @@ const clearLocalStorageBills = function() {
 
 // This will check the values of the due date (just the day-date) against the current date to see if they align and will add the class 'bill_due' which just colors the dom element red,  in the future I want to be able to sort and color these by dates / paid properties.
 
+
+// This needs to be moved to List View because it uses DOM elements, or take the Dom element const and move it else where then run this logic as folows in the model view.
 export const billLogic = async function(bill) {
     try {
         state.bills.forEach(bill => {
