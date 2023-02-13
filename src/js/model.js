@@ -39,31 +39,25 @@ export let state = {
         index: 0,
     },
     bills: [],
+    localStorage: [],
 };
 
-export const loadBill = async function(newBill) {
-    try {
+export const loadBill = function(newBill) {
         state.bill = {
-            name: newBill.billName,
-            amount: newBill.billCost,
-            dueDate: newBill.billDate,
-            id: Date.now(),
-            payd: false,
+            name: newBill.name,
+            amount: newBill.amount,
+            dueDate: newBill.dueDate,
+            id: newBill.id ? newBill.id :Date.now(),
+            payd: newBill.payd ? newBill.payd : false,
             ...(newBill.reoccuring && {reoccuring: newBill.reoccuring}),
         }
         state.bills.push(state.bill);
-        // localStorageBills();
-    } catch(err) {
-        console.error(`${err} ✨✨✨`)
-        throw err;
-    }
+        localStorageBills();
 }
 
 export const billPaydToggle = function(id) {
     const index = state.bills.findIndex(el => el.id === id);
-    console.log(state.bills);
     state.bills[index].payd = !state.bills[index].payd;
-    console.log(state.bills[index]);
 }
 
 
@@ -83,35 +77,17 @@ const removeBill = function() {
 }
 
 // Testing Purposes (Just call it once to delete storage)
-const clearLocalStorageBills = function() {
+//    ---> UNEXPORT WHEN FINAL <----
+export const clearLocalStorageBills = function() {
     localStorage.clear('bills');
 }
 
-
-// This will check the values of the due date (just the day-date) against the current date to see if they align and will add the class 'bill_due' which just colors the dom element red,  in the future I want to be able to sort and color these by dates / paid properties.
-
-export const billLogic = async function(bill) {
-    try {
-        state.bills.forEach(bill => {
-            const elem = document.querySelector(`[data-bill_id="${bill.id}"]`);
-            if (date.currentDate.day === +bill.dueDate.slice(-2)) {
-                elem.classList.add('bill_due');
-            }
-        })
-    } catch(err) {
-        console.error(`${err} 🔥`)
-    }
-}
+// clearLocalStorageBills();
 
 const init = async function() {
     const history = localStorage.getItem('bills');
     if(history) {
         state.bills = JSON.parse(history)
-        console.log(state)
-        state.bills.forEach(el => {
-            listView.render(el);
-            billLogic(el);
-        });
     };
 }
 init();

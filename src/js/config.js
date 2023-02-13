@@ -1,3 +1,5 @@
+// Everything in Config is designed to be changed based on the usage of this application. Currently it is directly being used through a browser DOM.
+
 
 // Form Element for Uploading Bill Data:
 export const INPUT_FORM_DATA = document.getElementById('upload');
