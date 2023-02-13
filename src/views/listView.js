@@ -8,6 +8,7 @@ class ListView extends View {
     _parentElement = BILL_LIST;
 
     _addHandlerBillSubmit(handler) {
+        // Reminder that click doesn't validate and submit refreshes page..
         BILL_SUBMIT_BUTTON.addEventListener('click', function(e) {
             e.preventDefault();
             const dataArr = new FormData(INPUT_FORM_DATA);
@@ -36,13 +37,13 @@ class ListView extends View {
         }
     }
 
-    _generateMarkup(data) {
+    _generateMarkup() {
         return `
-        <li class="bill__item" data-bill_id="${data.bill.id}">
-            <h1>${data.bill.name}</h1>
-            <h2>Amount Due: ${data.bill.amount}</h2>
-            <h3>Due Date: ${data.bill.dueDate}</h3>
-            <h3>${data.bill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+        <li class="bill__item" data-bill_id="${this.data.bill.id}">
+            <h1>${this.data.bill.name}</h1>
+            <h2>Amount Due: ${this.data.bill.amount}</h2>
+            <h3>Due Date: ${this.data.bill.dueDate.year}-${this.data.bill.dueDate.month}-${this.data.bill.dueDate.day}</h3>
+            <h3>${this.data.bill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
             <button class="payd__button">Payd!</button>
         </li>
         `
@@ -66,7 +67,9 @@ class ListView extends View {
 
         const elem = document.querySelector(`[data-bill_id="${iden ? bill.bills[index].id : bill.bill.id}"]`);
 
-        const dueDateExtract = iden ? String(bill.bills[index].dueDate).slice(-2) : String(bill.bill.dueDate).slice(-2);
+        // const dueDateExtract = iden ? String(bill.bills[index].dueDate).slice(-2) : String(bill.bill.dueDate).slice(-2);
+
+        const dueDateExtract = iden ? bill.bills[index].dueDate.day : bill.bill.dueDate.day;
 
             if (bill.bills[index].payd === true) {
                 elem.classList.add('payd');

@@ -7,11 +7,11 @@ import { View } from "./view.js";
 class DateView extends View {
     _parentElement = CURRENT_DATE_DISPLAY;
 
-    _generateMarkup(data) {
+    _generateMarkup() {
         this._clear();
         return `
-        <h1 class="current_date">${data.currentDate.year} - ${data.currentDate.month} - ${data.currentDate.day}</h1>
-        <h3>Session started at: ${data.currentDate.time}</h2>
+        <h1 class="current_date">${this.data.currentDate.year} - ${this.data.currentDate.month} - ${this.data.currentDate.day}</h1>
+        <h3>Session started at: ${this.data.currentDate.time}</h2>
         `
     }
 }

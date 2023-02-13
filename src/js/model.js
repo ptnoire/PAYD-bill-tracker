@@ -24,6 +24,7 @@ export const currentDate = function() {
             month: month,
             day: day,
             time: (`${hour}:${minute}:${seconds}`),
+            fullDate: now,
         }
     }
 }
@@ -40,22 +41,52 @@ export let state = {
     localStorage: [],
 };
 
+
 export const loadBill = function(newBill) {
+        const dueDateFormat = new Date(newBill.dueDate + " 00:01:00");
+        console.log(dueDateFormat);
         state.bill = {
             name: newBill.title,
             amount: newBill.amount,
-            dueDate: newBill.dueDate,
+            dueDate: {
+                fullDate: dueDateFormat,
+                year: dueDateFormat.getFullYear(),
+                month: (dueDateFormat.getMonth() + 1),
+                day: dueDateFormat.getDate(),
+            },
             id: newBill.id ? newBill.id :Date.now(),
             payd: newBill.payd ? newBill.payd : false,
             ...(newBill.reoccuring && {reoccuring: newBill.reoccuring}),
+            history: [],
         }
         state.bills.push(state.bill);
         localStorageBills();
+        console.log(state)
 }
 
 export const billPaydToggle = function(id) {
     const index = state.bills.findIndex(el => el.id === id);
+    const newDate = new Date(state.bills[index].dueDate.fullDate)
+
+    const historyReciept = {
+        title: state.bills[index].name,
+        paid: state.bills[index].amount,
+        date: date.currentDate.fullDate,
+    }
+
+    state.bills[index].history.push(historyReciept);
+    
+    newDate.setMonth((newDate.getMonth() + 1));
+    console.log(newDate);
     state.bills[index].payd = !state.bills[index].payd;
+    state.bills[index].dueDate.fullDate = newDate;
+    state.bills[index].dueDate = {
+        fullDate: newDate,
+        year: newDate.getFullYear(),
+        month: (newDate.getMonth() + 1),
+        day: newDate.getDate(),
+    }
+    console.log(state.bills[index]);
 }
 
 
