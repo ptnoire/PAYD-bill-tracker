@@ -2,11 +2,10 @@
 import { INPUT_FORM_DATA, BILL_LIST, BILL_SUBMIT_BUTTON } from "../js/config.js";
 
 // Parent Class For DOM Interaction
-import { View } from "../js/view.js";
+import { View } from "./view.js";
 
 class ListView extends View {
     _parentElement = BILL_LIST;
-    _paydButton = this._parentElement.querySelector('.payd__button');
 
     _addHandlerBillSubmit(handler) {
         BILL_SUBMIT_BUTTON.addEventListener('click', function(e) {
@@ -38,7 +37,6 @@ class ListView extends View {
     }
 
     _generateMarkup(data) {
-        console.log(data);
         return `
         <li class="bill__item" data-bill_id="${data.bill.id}">
             <h1>${data.bill.name}</h1>
@@ -48,6 +46,39 @@ class ListView extends View {
             <button class="payd__button">Payd!</button>
         </li>
         `
+    }
+
+    reloadLocalStorage(date, data) {
+        data.bills.forEach(el => {
+            const objectWorkAround = {bill: {...el}};
+            this.render(objectWorkAround)
+            this.billLogic(date, data, el.id);
+        });
+
+    }
+
+    billLogic(date, bill, iden) {
+        // If Iden (Identification Number on Bill) is passed as an argument, then this function will update based off of that number, if not it will take directly from the state object which should be the current bill being taken under. This will allow this function to work logic for updates and additons.
+
+        const index = iden ? bill.bills.findIndex(el => el.id === iden) : 0;
+
+        const elem = document.querySelector(`[data-bill_id="${iden ? bill.bills[index].id : bill.bill.id}"]`);
+
+        const dueDateExtract = iden ? String(bill.bills[index].dueDate).slice(-2) : String(bill.bill.dueDate).slice(-2);
+
+            if (bill.bills[index].payd === true) {
+                elem.classList.add('payd');
+                elem.classList.remove('bill_due');
+            }
+            if (bill.bills[index].payd === false) {
+                elem.classList.remove('payd');
+                if(date.currentDate.day === +dueDateExtract) {
+                    elem.classList.add('bill_due');
+                }
+            }
+            if(date.currentDate.day === +dueDateExtract) {
+                elem.classList.add('bill_due');
+            }
     }
 }
 

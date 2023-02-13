@@ -2,7 +2,7 @@
 import { CURRENT_DATE_DISPLAY } from "../js/config.js";
 
 // Parent Class For DOM Interaction
-import { View } from "../js/view.js";
+import { View } from "./view.js";
 
 class DateView extends View {
     _parentElement = CURRENT_DATE_DISPLAY;
