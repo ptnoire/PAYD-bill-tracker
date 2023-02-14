@@ -7,22 +7,22 @@
     <title>Payd - Easy Bill Tracking</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Oswald:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <script type="module" src="src/js/controller.js"></script>
 </head>
 <body>
     <div class="topNav">
-        <h1>it's PAYD</h1>
-        <h2>A simple bill tracker with no non-sense.</h2>
+        <h1><span class="payd_span">payd</span></h1>
+        <h2>A simple bill tracker. No non-sense.</h2>
         <button class="clear_local_storage">Clear Local Storage</button>
     </div>
 
     <h1 class="current__date">Current Date</h1>
     
-    <h2>New Bill:</h2>
     <div class="input__bills">
+        <h2>Submit New Bill</h2>
         <form id="upload">
             <input class="text__field inp--bill_name" name="title" type="text" placeholder="Insert Bill Name Here" required></input>
             <input class="text__field inp--bill_amount" name="amount" type="number" placeholder="Insert Cost of Bill Here" required></input>
@@ -36,5 +36,6 @@
 
         </ul>
     </div>
+    <p class="pt_top">another <a class="pt_sig" href="https://pt-anderson.netlify.app/">P.T. Anderson</a> classic.</p>
 </body>
 </html>

@@ -1,36 +1,138 @@
-body {
-    font-family: 'Oswald', sans-serif;
+:root {
+    --text-color: beige;
+    --payd-green: #00C853;
+    --due-red: #e91313;
+    --payd-border: linear-gradient(to left, #00C853, #B2FF59);
+    --due-border: linear-gradient(to left, #e91313, #fe4a4a);
+    --normal-border: linear-gradient(to left, #c5dec2, #a5d7a4);
+    --background-black: rgb(29, 29, 29);
 }
 
-.topNav {
-    padding-left: 10px;
-    line-height: .5;
-    border: 5px solid black;
+@font-face {
+    font-family: Heaters;
+    src: url(Heaters.otf);
+  }
+
+.pt_top {
+    margin-top: 30vh;
+    text-align: center;
+    margin-left: 5px;
+    color: var(--text-color);
+}
+
+.pt_sig {
+    font-family: Heaters;
+    font-size: 50px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+body {
+    height: 100vh;
+    background: rgb(64,64,64);
+    background: linear-gradient(180deg, rgba(64,64,64,1) 0%, rgba(51,51,51,1) 52%, rgba(29,29,29,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Oswald', sans-serif;
+    padding-bottom: 500px;
+}
+
+a:visited {
+    text-decoration: none;
 }
 
 .current__date {
     text-align: center;
+    color: var(--text-color);
+}
+
+.payd_span {
+    font-size: 5rem;
+    letter-spacing: -8px;
+    font-family: 'Comfortaa', cursive;
+    color: var(--payd-green);
+}
+
+.topNav {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background: rgb(34,34,34);
+    background: linear-gradient(150deg, rgba(34,34,34,1) 0%, rgba(42,42,42,1) 70%, rgba(52,247,78,1) 94%);
+    color: var(--text-color);
+    padding-left: 10px;
+    padding-bottom: 10px;
+    line-height: .5;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-image-source: var(--payd-border);
+}
+
+.input__bills {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--background-black);
+    color: var(--text-color);
+    text-align:center;
+    padding-bottom: 10px;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-image-source: var(--payd-border);
+    width: 40%;
+}
+
+.bill__list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    padding: 1rem;
+    border: 3px solid rgb(59, 149, 71);
+    border-top: 0;
+    border-bottom: 0;
 }
 
 .bill__item {
-    display: inline-block;
-    border: 1px solid red;
-    padding: 10px;
-} 
+    padding-left: 50px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    list-style-type: none;
+    color: var(--text-color);
+    background: var(--background-black);
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: var(--normal-border);
+    width: 70%;
+}
 
-.input__bills {
-    text-align:center;
-    padding: 20px;
-    border: 5px solid green;
-    width: 50%;
+.bill__item h1 {
+    font-family: 'Comfortaa', cursive;
+    text-decoration: underline;
+    text-underline-offset: .15rem;
 }
 
 .bill_due {
-    background-color: rgb(171, 38, 38);
-    color: beige;
+    border-image-source: var(--due-border);
+    transition: all .5s ease-in-out;
+    color: var(--text-color);
+}
+
+.bill_due h1 {
+    transition: 1s;
+    text-decoration-color: var(--due-red);
 }
 
 .payd {
-    background-color: green;
-    color: beige;
+    border-image-source: var(--payd-border);
+    transition: all .5s ease-in-out;
+    color: var(--text-color);
+}
+
+.payd h1 {
+    transition: 1s;
+    text-decoration-color: var(--payd-green);
 }

@@ -7,6 +7,7 @@ export let date = {
         month: 0,
         day: 0,
         time: 0,
+        fullDate: 0,
     }
 }
 
@@ -75,7 +76,7 @@ export const billPaydToggle = function(id) {
     }
 
     state.bills[index].history.push(historyReciept);
-    
+
     newDate.setMonth((newDate.getMonth() + 1));
     console.log(newDate);
     state.bills[index].payd = !state.bills[index].payd;
