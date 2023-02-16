@@ -13,18 +13,18 @@ export let date = {
 
 export const currentDate = function() {
     const now = new Date();
-    const month = (now.getMonth() + 1);
-    const day = now.getDate();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
     const year = now.getFullYear();
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-    const seconds = now.getSeconds();
+    const hour = String(now.getHours()).padStart(2, "0");
+    const minute = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
     return date = {
         currentDate: {
             year: year,
-            month: month,
-            day: day,
-            time: (`${hour}:${minute}:${seconds}`),
+            month: +month,
+            day: +day,
+            time: (`${+hour}:${+minute}:${+seconds}`),
             fullDate: now,
         }
     }
@@ -39,13 +39,11 @@ export let state = {
         reoccuring: false,
     },
     bills: [],
-    localStorage: [],
 };
 
 
 export const loadBill = function(newBill) {
         const dueDateFormat = new Date(newBill.dueDate + " 00:01:00");
-        console.log(dueDateFormat);
         state.bill = {
             name: newBill.title,
             amount: newBill.amount,
@@ -65,43 +63,102 @@ export const loadBill = function(newBill) {
         console.log(state)
 }
 
-export const billPaydToggle = function(id) {
+export const getID = function(id) {
     const index = state.bills.findIndex(el => el.id === id);
-    const newDate = new Date(state.bills[index].dueDate.fullDate)
+    return state.bills[index];
+}
+
+export const editBill = function(id, formData) {
+    const selectedBill = getID(id)
+    const dueDateFormat = new Date(formData.dueDate + " 00:01:00");
+    selectedBill = {
+        name: formData.title,
+        amount: formData.amount,
+        dueDate: {
+            fullDate: dueDateFormat,
+            year: dueDateFormat.getFullYear(),
+            month: (dueDateFormat.getMonth() + 1),
+            day: dueDateFormat.getDate(),
+        },
+        ...(formData.reoccuring && {reoccuring: formData.reoccuring}),
+    }
+    console.log(selectedBill, state.bills);
+}
+
+export const billPaydToggle = function(selectedBill) {
+    const newDate = (selectedBill.reoccuring ? new Date(selectedBill.dueDate.fullDate) : new Date(date.currentDate.fullDate));
+    console.log(selectedBill.dueDate.fullDate);
+    console.log(`🔥🔥🔥`, newDate);
 
     const historyReciept = {
-        title: state.bills[index].name,
-        paid: state.bills[index].amount,
-        date: date.currentDate.fullDate,
+        title: selectedBill.name,
+        paid: selectedBill.amount,
+        date: {
+            year: date.currentDate.year,
+            month: date.currentDate.month,
+            day: date.currentDate.day,
+            time: date.currentDate.time,
+        },
+        id: Date.now(),
     }
 
-    state.bills[index].history.push(historyReciept);
 
-    newDate.setMonth((newDate.getMonth() + 1));
-    console.log(newDate);
-    state.bills[index].payd = !state.bills[index].payd;
-    state.bills[index].dueDate.fullDate = newDate;
-    state.bills[index].dueDate = {
+    // Omg I can't figure this out, try going from Dec -> Jan, it skips a month. I'm coming back to this. Fuck it. feb 16
+    
+    if(selectedBill.payd === false) {
+        selectedBill.history.push(historyReciept);
+        newDate.setMonth((selectedBill.dueDate.month + 1));
+        if(newDate.getMonth() !== 1) newDate.setDate(0);
+        console.log(`🔥` + newDate.getMonth());
+    }
+
+    selectedBill.payd = !selectedBill.payd;
+
+    if(selectedBill.reoccuring) {
+        selectedBill.dueDate = {
         fullDate: newDate,
         year: newDate.getFullYear(),
         month: (newDate.getMonth() + 1),
         day: newDate.getDate(),
+        }
     }
-    console.log(state.bills[index]);
+    console.log(`Bill Date: ` + selectedBill.dueDate.fullDate);
+    localStorageBills();
 }
+
+// The worst of all, alternating end dates requrie some sort of math. I think this is the best way to do this, right? Could be improved but this should mean that no matter what end date you select, it will correct the date to month's actually end date.
+
+// Omfg, setDate(0) exists. I am really bad. So embarrassing. I am leaving this below cause I thought I was really clever. Go ahead laugh at me.
+
+// const dateCorrection = (day, month) => {
+//     console.log(`Inputs: ` + day, month);
+//     if(+day === 31) {
+//         if (month === 1 | 3 | 5 | 7 | 8 | 10 | 12) return 31
+//         if (month === 2) return 28
+//         if (month === 4 | 6 | 9 | 11) return 30
+//     }
+//     if (+day === 30) {
+//         if (month === 1 | 3 | 5 | 7 | 8 | 10 | 12) return 31
+//         if (month === 2) return 28
+//         if (month === 4 | 6 | 9 | 11) return 30
+//     }
+//     if (+day === 28) {
+//         if (month === 1 | 3 | 5 | 7 | 8 | 10 | 12) return 31
+//         if (month === 2) return 28
+//         if (month === 4 | 6 | 9 | 11) return 30
+//     }
+//     else return +day;
+// }
 
 
 // Setting the state.bills array to local storage for persistance.
-
-// Issue right now is when we use the render function from ListView it reads from the state.bill object, not the array. Perhaps we run the local storage as individual items and pass it through the function loadBill? Or create a new render function for stored content. -FEB 11th
-
 const localStorageBills = function() {
     localStorage.setItem('bills', JSON.stringify(state.bills));
 }
 
 // For Deleting Bills from List / Storage (Not Implemented Yet)
-const removeBill = function() {
-    const findBill = state.bills.findIndex(el => el.id === id);
+const removeBill = function(id) {
+    const index = state.bills.findIndex(el => el.id === id);
     state.bills.splice(index, 1);
     localStorageBills();
 }

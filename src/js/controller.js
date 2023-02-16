@@ -1,5 +1,7 @@
 import listView from "../views/listView.js";
 import dateView from "../views/dateView.js";
+import historyView from "../views/historyView.js";
+import editView from "../views/editView.js";
 import * as model from "./model.js"
 
 // Debugging Purposes
@@ -13,18 +15,36 @@ const addNewBill = function(formData) {
     listView.billLogic(model.date, model.state);
 }
 
+const editBillControl = (formData) =>
+    console.log(formData);
 
 const paydButton = function(id) {
-    model.billPaydToggle(id);
-    listView.billLogic(model.date, model.state, id);
+    model.billPaydToggle(model.getID(id));
+    listView.billLogic(model.date, model.state, model.getID(id));
+}
+
+const editControl = (id) => editView.render(model.getID(id))
+const historyControl = (id) => historyView.render(model.getID(id))
+const showModalControl = () => historyView.showModal();
+const editModalToggle = () => editView.showModal();
+const backdropClose = () => {
+    editView.backdropClose();
+    historyView.backdropClose();
 }
 
 
-const init = function() {
-    listView._addHandlerBillSubmit(addNewBill);
+const init = () => {
+    listView.addHandlerBillSubmit(addNewBill);
     dateView.render(model.currentDate());
-    listView._addHandlerPaydButton(paydButton);
+    listView.addHandlerPaydButton(paydButton);
     listView.reloadLocalStorage(model.date, model.state);
+    listView.addHandlerHistoryButton(historyControl);
+    listView.addHandlerEditButton(editControl);
+    historyView.addHandlerShowModal(showModalControl);
+    historyView.addHistoryBackdropHandler(backdropClose);
+    editView.addHandlerBillSubmit(editBillControl);
+    editView.addEditBackdropHandler(backdropClose);
+    editView.addHandlerShowModal(editModalToggle);
 }
 
 init();
