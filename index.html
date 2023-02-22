@@ -32,6 +32,15 @@
         </form>
     </div>
     <div class="body">
+        <select name="sort" id="">
+            <option value="Highest Cost">Highest Cost</option>
+            <option value="Lowest Cost">Lowest Cost</option>
+            <option value="Ascending Name">Ascending Name</option>
+            <option value="Descending Name">Descending Name</option>
+            <option value="Closest Date">Closest Date</option>
+            <option value="Most Recently Payd">Most Recently Payd</option>
+        </select>
+        <button class="btn btn-sort">Sort</button>
         <ul class="bill__list">
 
         </ul>
@@ -42,17 +51,7 @@
     <div class="backdrop hidden">
 
     </div>
-    <div class="edit__modal modal hidden">
-        <h2>Edit Bill Information</h2>
-        <button class="btn close_modal">&times;</button>
-        <form id="edit">
-            <input name="title" type="text" required></input><br>
-            <input name="amount" type="number" required></input><br>
-            <input name="dueDate" type="date" required ></input>
-            <input name="reoccuring" type="checkbox">Reoccuring?</input><br>
-            <button class="btn btn--submit">Submit</button>
-        </form>
-    </div>
+
     <p class="pt_top">another <a class="pt_sig" href="https://pt-anderson.netlify.app/">P.T. Anderson</a> classic.</p>
 </body>
 </html>

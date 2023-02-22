@@ -28,6 +28,8 @@ class HistoryView extends View {
         })
     }
 
+    
+
     _generateMarkup() {
         this._clear();
         this.showModal();

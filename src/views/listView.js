@@ -53,6 +53,9 @@ class ListView extends View {
                 <button class="btn history__button">View History</button>
                 <button class="btn modify_button">Edit Bill</button>
             </div>
+            <div class="edit_row">
+
+            </div>
         </li>
         `
     }
@@ -69,6 +72,9 @@ class ListView extends View {
                 <button class="btn payd__button">Payd!</button>
                 <button class="btn history__button">View History</button>
                 <button class="btn modify_button">Edit Bill</button>
+            </div>
+            <div class="edit_row">
+
             </div>
         `
     }
@@ -91,21 +97,31 @@ class ListView extends View {
         const btnElement = elem.querySelectorAll('.btn');
         const dueDateExtract = specificBill ? specificBill.dueDate.day : bill.bill.dueDate.day;
 
+        const monthMatch = specificBill ? 
+        date.currentDate.month === specificBill.dueDate.month 
+        : date.currentDate.month === bill.bill.dueDate.month;
+
+        const yearMatch = specificBill ? 
+        date.currentDate.year === specificBill.dueDate.year 
+        : date.currentDate.year === bill.bill.dueDate.year;
+        
             if (specificBill && specificBill.payd === true) {
                 elem.classList.add('payd');
                 elem.classList.remove('bill_due');
                 btnElement.forEach(el => el.classList.remove('btn-d'));
                 btnElement.forEach(el => el.classList.add('btn-p'));
             }
+
             if (specificBill && specificBill.payd === false) {
                 elem.classList.remove('payd');
                 btnElement.forEach(el => el.classList.remove('btn-p'));
-                if(date.currentDate.day === +dueDateExtract) {
+                if(date.currentDate.day === +dueDateExtract && monthMatch && yearMatch) {
                     elem.classList.add('bill_due');
                     btnElement.forEach(el => el.classList.add('btn-d'));
                 }
             }
-            if(!specificBill && date.currentDate.day === +dueDateExtract) {
+
+            if(!specificBill && date.currentDate.day === +dueDateExtract && monthMatch && yearMatch) {
                 elem.classList.add('bill_due');
                 btnElement.forEach(el => el.classList.add('btn-d'));
             }

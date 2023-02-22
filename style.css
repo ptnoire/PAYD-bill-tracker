@@ -72,6 +72,10 @@ h2 {
     border-image-source: var(--due-border);
 }
 
+.close_edit {
+    margin-left: auto;
+}
+
 .current__date {
     text-align: center;
     color: var(--text-color);

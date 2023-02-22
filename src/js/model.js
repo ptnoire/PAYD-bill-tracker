@@ -118,35 +118,17 @@ export const billPaydToggle = function(selectedBill) {
     localStorageBills();
 }
 
-// The nastiest of bugs, finally defeated. Full comments in function.
+
 function incrementMonthAndRetainDate(date) {
-    // Get the old date and store it.
     const newDate = new Date(date.getTime());
-
-    // We are going to take the old date, check to see if it is the end of the month and set it to a boolean that we will check.
-
-    // The important note here is .getMonth() + 1, 0 which sets the month forward and then checks the last day of the PREVIOUS month, then the final chained call is 'getDate' to see if the date of what we inputted is exactly the same as the last day of the month.
-
     const isLastDayOfMonth = date.getDate() === new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-
-        // If the above boolean is true, return a new date with an updated last day of the month.
         if (isLastDayOfMonth) {
-
-            // !! IMPORTANT !! - Move the date to the first.
-            // This was the bug that took a week to figure out, if the date is the end of the month and it sets the month forward, it will set it 2 months forward, so we are going to set it to the first to make sure that the month is always incremented by one.
             newDate.setDate(1);
-
-            // Now set the month ahead by one.
             newDate.setMonth(newDate.getMonth() + 1);
-
             newDate.setDate(new Date(newDate.getFullYear(), newDate.getMonth() + 1, 0).getDate());
-
             return newDate
         }
-
     newDate.setMonth(newDate.getMonth() + 1);
-
-    //Return this date format.
     return newDate;
   }
   

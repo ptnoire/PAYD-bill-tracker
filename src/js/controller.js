@@ -15,8 +15,7 @@ const addNewBill = function(formData) {
     listView.billLogic(model.date, model.state);
 }
 
-const editBillControl = (formData) =>
-    console.log(formData);
+const editBillControl = (formData) => console.log(formData);
 
 const paydButton = function(id) {
     model.billPaydToggle(model.getID(id));
@@ -24,11 +23,11 @@ const paydButton = function(id) {
 }
 
 const editControl = (id) => editView.render(model.getID(id))
+const closeEditOption = () => editView.clearEditOption();
 const historyControl = (id) => historyView.render(model.getID(id))
 const showModalControl = () => historyView.showModal();
-const editModalToggle = () => editView.showModal();
+
 const backdropClose = () => {
-    editView.backdropClose();
     historyView.backdropClose();
 }
 
@@ -42,9 +41,7 @@ const init = () => {
     listView.addHandlerEditButton(editControl);
     historyView.addHandlerShowModal(showModalControl);
     historyView.addHistoryBackdropHandler(backdropClose);
-    editView.addHandlerBillSubmit(editBillControl);
-    editView.addEditBackdropHandler(backdropClose);
-    editView.addHandlerShowModal(editModalToggle);
+    editView.addHandlerCloseEdit(closeEditOption);
 }
 
 init();
