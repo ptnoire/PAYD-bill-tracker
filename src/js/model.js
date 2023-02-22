@@ -86,9 +86,7 @@ export const editBill = function(id, formData) {
 }
 
 export const billPaydToggle = function(selectedBill) {
-    const newDate = (selectedBill.reoccuring ? new Date(selectedBill.dueDate.fullDate) : new Date(date.currentDate.fullDate));
-    console.log(selectedBill.dueDate.fullDate);
-    console.log(`🔥🔥🔥`, newDate);
+    let newDate = (selectedBill.reoccuring ? new Date(selectedBill.dueDate.fullDate) : new Date(date.currentDate.fullDate));
 
     const historyReciept = {
         title: selectedBill.name,
@@ -101,15 +99,14 @@ export const billPaydToggle = function(selectedBill) {
         },
         id: Date.now(),
     }
-
-
-    // Omg I can't figure this out, try going from Dec -> Jan, it skips a month. I'm coming back to this. Fuck it. feb 16
     
+    // Add Reciept if payd is false, set date ahead one month.
+
+    // Can't get this right.
+
     if(selectedBill.payd === false) {
         selectedBill.history.push(historyReciept);
-        newDate.setMonth((selectedBill.dueDate.month + 1));
-        if(newDate.getMonth() !== 1) newDate.setDate(0);
-        console.log(`🔥` + newDate.getMonth());
+        // newDate = incrementMonthAndRetainDate(newDate)
     }
 
     selectedBill.payd = !selectedBill.payd;
@@ -126,30 +123,18 @@ export const billPaydToggle = function(selectedBill) {
     localStorageBills();
 }
 
-// The worst of all, alternating end dates requrie some sort of math. I think this is the best way to do this, right? Could be improved but this should mean that no matter what end date you select, it will correct the date to month's actually end date.
+// Still doesn't work, now it jumps ahead 2 months to every 31st.
 
-// Omfg, setDate(0) exists. I am really bad. So embarrassing. I am leaving this below cause I thought I was really clever. Go ahead laugh at me.
-
-// const dateCorrection = (day, month) => {
-//     console.log(`Inputs: ` + day, month);
-//     if(+day === 31) {
-//         if (month === 1 | 3 | 5 | 7 | 8 | 10 | 12) return 31
-//         if (month === 2) return 28
-//         if (month === 4 | 6 | 9 | 11) return 30
+// function incrementMonthAndRetainDate(date) {
+//     const newDate = new Date(date.getTime());
+//     newDate.setMonth(newDate.getMonth() + 1);
+//     const isLastDayOfMonth = date.getDate() === new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+//     if (isLastDayOfMonth) {
+//       newDate.setDate(new Date(newDate.getFullYear(), newDate.getMonth() + 1, 0).getDate());
 //     }
-//     if (+day === 30) {
-//         if (month === 1 | 3 | 5 | 7 | 8 | 10 | 12) return 31
-//         if (month === 2) return 28
-//         if (month === 4 | 6 | 9 | 11) return 30
-//     }
-//     if (+day === 28) {
-//         if (month === 1 | 3 | 5 | 7 | 8 | 10 | 12) return 31
-//         if (month === 2) return 28
-//         if (month === 4 | 6 | 9 | 11) return 30
-//     }
-//     else return +day;
-// }
-
+//     return newDate;
+//   }
+  
 
 // Setting the state.bills array to local storage for persistance.
 const localStorageBills = function() {
@@ -169,10 +154,7 @@ export const clearLocalStorageBills = function() {
     localStorage.clear('bills');
 }
 
-
-// clearLocalStorageBills();
-
-const init = async function() {
+const init = function() {
     const history = localStorage.getItem('bills');
     if(history) {
         state.bills = JSON.parse(history)

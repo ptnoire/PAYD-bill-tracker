@@ -38,7 +38,7 @@ class EditView extends View {
         <form id="edit">
             <input  name="title" type="text" placeholder="${this.data.name}" required></input><br>
             <input name="amount" type="number" placeholder="${this.data.amount}" required></input><br>
-            <input name="dueDate" type="date" required ></input>
+            <input name="dueDate" type="date" required></input>
             <input name="reoccuring" type="checkbox">Reoccuring?</input><br>
             <button class="btn btn--submit">Submit</button>
         </form>

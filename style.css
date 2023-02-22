@@ -58,6 +58,10 @@ h2 {
     border-image-source: var(--normal-border);
 }
 
+.btn:hover {
+    box-shadow: 0 0 2px #1dd09179, 0 0 3px #1dd0916c, 0 0 4px #1dd09149, 0 0 5px #1dd0917a, 0 0 6px #1dd0916b, 0 0 7px #1dd09159;
+}
+
 .btn-p {
     transition: .5s;
     border-image-source: var(--payd-border);
