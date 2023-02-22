@@ -60,7 +60,6 @@ export const loadBill = function(newBill) {
         }
         state.bills.push(state.bill);
         localStorageBills();
-        console.log(state)
 }
 
 export const getID = function(id) {
