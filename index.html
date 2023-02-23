@@ -18,20 +18,8 @@
         <h2>A simple bill tracker. No non-sense.</h2>
         <button class="clear_local_storage">Clear Local Storage</button>
     </div>
-
-    <h1 class="current__date">Current Date</h1>
-    
-    <div class="input__bills">
-        <h2>Submit New Bill</h2>
-        <form id="upload">
-            <input class="text__field" name="title" type="text" placeholder="Insert Bill Name Here" required></input>
-            <input class="text__field" name="amount" type="number" placeholder="Insert Cost of Bill Here" required></input>
-            <input class="text__field" name="dueDate" type="date" required></input>
-            <input name="reoccuring" type="checkbox">Reoccuring?</input>
-            <button class="btn btn--submit">Submit</button>
-        </form>
-    </div>
-    <div class="body">
+    <div class="main_buttons">
+        <button class="btn">Submit New Bill</button>
         <select name="sort" id="">
             <option value="Highest Cost">Highest Cost</option>
             <option value="Lowest Cost">Lowest Cost</option>
@@ -41,16 +29,28 @@
             <option value="Most Recently Payd">Most Recently Payd</option>
         </select>
         <button class="btn btn-sort">Sort</button>
+        <button class="btn">Import / Export Data</button>
+    </div>
+
+    <h1 class="current__date">Current Date</h1>
+    <div class="modal hidden"></div>
+    <div class="input__bills hidden">
+        <h2>Submit New Bill</h2>
+        <form id="upload">
+            <input class="text__field" name="title" type="text" placeholder="Insert Bill Name Here" required></input>
+            <input class="text__field" name="amount" type="number" placeholder="Insert Cost of Bill Here" required></input>
+            <input class="text__field" name="dueDate" type="date" required></input>
+            <input name="reoccuring" type="checkbox">Reoccuring?</input>
+            <button class="btn btn--submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="main__content">
         <ul class="bill__list">
 
         </ul>
     </div>
-    <div class="history__modal modal hidden">
-
-    </div>
-    <div class="backdrop hidden">
-
-    </div>
+    <div class="backdrop hidden"></div>
 
     <p class="pt_top">another <a class="pt_sig" href="https://pt-anderson.netlify.app/">P.T. Anderson</a> classic.</p>
 </body>

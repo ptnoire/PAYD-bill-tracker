@@ -1,4 +1,7 @@
+import { TOP_OF_PAGE } from "../js/config.js";
+
 export class View {
+    _top = TOP_OF_PAGE;
     data;
 
     render(data) {
@@ -10,6 +13,14 @@ export class View {
     
     _clear() {
         this._parentElement.innerHTML = '';
+    }
+
+    scrollToTop() {
+        this._top.scrollIntoView({behavior: 'smooth'});
+    }
+
+    scrollToParent() {
+        this._parentElement.scrollIntoView({behavior: 'smooth'});
     }
 
     showModal() {

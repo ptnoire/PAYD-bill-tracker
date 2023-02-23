@@ -23,9 +23,14 @@ const paydButton = function(id) {
 }
 
 const editControl = (id) => editView.render(model.getID(id))
-const closeEditOption = () => editView.clearEditOption();
+
 const historyControl = (id) => historyView.render(model.getID(id))
 const showModalControl = () => historyView.showModal();
+
+const showEditModal = () => {
+    editView.scrollToParent();
+    editView.showModal();
+};
 
 const backdropClose = () => {
     historyView.backdropClose();
@@ -41,7 +46,7 @@ const init = () => {
     listView.addHandlerEditButton(editControl);
     historyView.addHandlerShowModal(showModalControl);
     historyView.addHistoryBackdropHandler(backdropClose);
-    editView.addHandlerCloseEdit(closeEditOption);
+    editView.addHandlerShowModal(showEditModal);
 }
 
 init();

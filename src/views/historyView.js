@@ -1,11 +1,11 @@
 // FROM CONFIG FILE: All Values can be changed there.
-import { BACKDROP, HISTORY_MODAL } from "../js/config.js";
+import { BACKDROP, MODAL } from "../js/config.js";
 
 // Parent Class For DOM Interaction
 import { View } from "./view.js";
 
 class HistoryView extends View {
-    _parentElement = HISTORY_MODAL;
+    _parentElement = MODAL;
     _backdrop = BACKDROP;
 
     addHandlerShowModal(handler) {
@@ -16,7 +16,7 @@ class HistoryView extends View {
             handler();
         })
         document.addEventListener('keydown', function(e) {
-            if(e.key === 'Escape' && !HISTORY_MODAL.classList.contains('hidden')) {
+            if(e.key === 'Escape' && !MODAL.classList.contains('hidden')) {
                 handler();
             }
         })
@@ -34,7 +34,7 @@ class HistoryView extends View {
         this._clear();
         this.showModal();
         return `
-        <button class="btn close_modal">&times;</button>
+        <button class="btn close_modal">Close Window</button>
         <h2>${this.data.name}'s History</h2>
             <ul>
             ${(this.data.history.length > 0) ? this.data.history.map(el =>

@@ -77,7 +77,8 @@ h2 {
 }
 
 .current__date {
-    text-align: center;
+    margin-left: 5%;
+    text-align: left;
     color: var(--text-color);
 }
 
@@ -115,7 +116,10 @@ h2 {
     border: 5px solid;
     border-image-slice: 1;
     border-image-source: var(--payd-border);
+    box-shadow: 0 10px 10px -4px rgb(0, 0, 0);
     width: 40%;
+    transition: all .5s;
+    z-index: 1;
 }
 
 .modal {
@@ -145,7 +149,7 @@ h2 {
     position: absolute;
     top: 0.5rem;
     right: 1rem;
-    width: 30px;
+    width: auto;
     height: 30px;
     cursor: pointer;
   }
@@ -167,6 +171,14 @@ h2 {
 .hidden {
     visibility: hidden;
     opacity: 0;
+}
+
+.main_buttons {
+    display: inline;
+    position: absolute;
+    top: 12rem;
+    right: 5%;
+    padding: 10px;
 }
 
 .bill__list {
