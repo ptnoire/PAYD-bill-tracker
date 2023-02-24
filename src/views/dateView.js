@@ -10,8 +10,8 @@ class DateView extends View {
     _generateMarkup() {
         this._clear();
         return `
-        <h2 class="current_date">${this.data.currentDate.year} - ${this.data.currentDate.month} - ${this.data.currentDate.day}</h2>
-        <p>Session started at: ${this.data.currentDate.time}</p>
+        <p class="current_date">Welcome back! It's ${this.data.currentDate.year} - ${this.data.currentDate.month} - ${this.data.currentDate.day} 💰 Your session started at: ${this.data.currentDate.time}</p>
+        
         `
     }
 }

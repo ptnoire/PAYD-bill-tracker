@@ -24,8 +24,8 @@ export class View {
     }
 
     showModal() {
+        if(this._backdrop) this._backdrop.classList.toggle('hidden');
         this._parentElement.classList.toggle('hidden');
-        this._backdrop.classList.toggle('hidden');
     }
 
     backdropClose() {

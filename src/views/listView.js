@@ -8,6 +8,7 @@ class ListView extends View {
     _parentElement = BILL_LIST;
     inputForm = INPUT_FORM;
 
+    // Maybe clean up all this repeated code?
     addHandlerPaydButton(handler) {
         this._parentElement.addEventListener('click', function(e) {
             e.preventDefault();

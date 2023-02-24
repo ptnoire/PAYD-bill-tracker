@@ -12,38 +12,46 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="src/js/controller.js"></script>
 </head>
+
 <body>
     <div class="topNav">
         <h1><span class="payd_span">payd</span></h1>
         <h2>A simple bill tracker. No non-sense.</h2>
         <button class="clear_local_storage">Clear Local Storage</button>
     </div>
-    <div class="main_buttons">
-        <button class="btn">Submit New Bill</button>
-        <select name="sort" id="">
-            <option value="Highest Cost">Highest Cost</option>
-            <option value="Lowest Cost">Lowest Cost</option>
-            <option value="Ascending Name">Ascending Name</option>
-            <option value="Descending Name">Descending Name</option>
-            <option value="Closest Date">Closest Date</option>
-            <option value="Most Recently Payd">Most Recently Payd</option>
-        </select>
-        <button class="btn btn-sort">Sort</button>
-        <button class="btn">Import / Export Data</button>
+
+    <div class="current__date">
+        <h1>Current Date</h1>
     </div>
 
-    <h1 class="current__date">Current Date</h1>
-    <div class="modal hidden"></div>
-    <div class="input__bills hidden">
+    <div class="main_buttons">
+        <div class="mBtn">
+            <button class="btn mBtn btn--submit">Submit New Bill</button>
+            <select class="mBtn" name="sort" id="">
+                <option value="Highest Cost">Highest Cost</option>
+                <option value="Lowest Cost">Lowest Cost</option>
+                <option value="Ascending Name">Ascending Name</option>
+                <option value="Descending Name">Descending Name</option>
+                <option value="Closest Date">Closest Date</option>
+                <option value="Most Recently Payd">Most Recently Payd</option>
+            </select>
+            <button class="btn btn-sort mBtn">Sort</button>
+            <button class="btn mBtn">Import / Export Data</button>
+        </div>
+    </div>
+
+    <div class="input__bills">
         <h2>Submit New Bill</h2>
         <form id="upload">
-            <input class="text__field" name="title" type="text" placeholder="Insert Bill Name Here" required></input>
-            <input class="text__field" name="amount" type="number" placeholder="Insert Cost of Bill Here" required></input>
-            <input class="text__field" name="dueDate" type="date" required></input>
-            <input name="reoccuring" type="checkbox">Reoccuring?</input>
+            <input class="text__field" id="title" name="title" type="text" placeholder="Insert Bill Name Here" required></input>
+            <input class="text__field" id="amount"  name="amount" type="number" placeholder="Insert Cost of Bill Here" required></input>
+            <input class="text__field" id="date"  name="dueDate" type="date" required></input>
+            <input id="reoccuring" name="reoccuring" type="checkbox" checked="checked">Reoccuring?</input>
             <button class="btn btn--submit">Submit</button>
         </form>
     </div>
+    
+    <div class="modal hidden"></div>
 
     <div class="main__content">
         <ul class="bill__list">

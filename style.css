@@ -76,10 +76,28 @@ h2 {
     margin-left: auto;
 }
 
-.current__date {
+.main_buttons {
+    margin-top: 1em;
     margin-left: 5%;
-    text-align: left;
+    margin-right: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: baseline;
+    column-gap: 10px;
+    padding-bottom: 20px;
+}
+
+.mBtn {
+    margin-left: 5px;
+}
+
+.current__date {
+    position: absolute;
+    top: 0;
+    left: 5%;
     color: var(--text-color);
+    line-height: 0%;
 }
 
 .payd_span {
@@ -119,7 +137,6 @@ h2 {
     box-shadow: 0 10px 10px -4px rgb(0, 0, 0);
     width: 40%;
     transition: all .5s;
-    z-index: 1;
 }
 
 .modal {
@@ -171,14 +188,6 @@ h2 {
 .hidden {
     visibility: hidden;
     opacity: 0;
-}
-
-.main_buttons {
-    display: inline;
-    position: absolute;
-    top: 12rem;
-    right: 5%;
-    padding: 10px;
 }
 
 .bill__list {
