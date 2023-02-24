@@ -28,18 +28,16 @@ class HistoryView extends View {
         })
     }
 
-    
-
     _generateMarkup() {
         this._clear();
-        this.showModal();
+        if(this._parentElement.classList.contains('hidden')) this.showModal();
         return `
         <button class="btn close_modal">Close Window</button>
         <h2>${this.data.name}'s History</h2>
-            <ul>
+            <ul data-billhistory_id="${this.data.id}">
             ${(this.data.history.length > 0) ? this.data.history.map(el =>
                 `
-                <li data-bill_id="${el.id}"><h3>Amount Paid: ${el.paid} on ${el.date.year} - ${el.date.month} - ${el.date.day} at ${el.date.time}</h3>
+                <li class="bill__item_history" data-history_id="${el.id}"><h3>Amount Paid: ${el.paid} on ${el.date.year} - ${el.date.month} - ${el.date.day} at ${el.date.time}</h3>
                 <button class="btn edit__history">Modify</button>
                 </li>
                 `

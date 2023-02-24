@@ -55,33 +55,45 @@ export const loadBill = function(newBill) {
             },
             id: newBill.id ? newBill.id :Date.now(),
             payd: newBill.payd ? newBill.payd : false,
-            ...(newBill.reoccuring && {reoccuring: newBill.reoccuring}),
+            reoccuring: newBill.reoccuring,
             history: [],
         }
         state.bills.push(state.bill);
         localStorageBills();
 }
 
-export const getID = function(id) {
-    const index = state.bills.findIndex(el => el.id === id);
+export const getID = function(id, historyId = false) {
+    let index;
+    let historyIndex;
+    
+    index = state.bills.findIndex(el => el.id === id);
+
+    if (historyId){
+        historyIndex = state.bills[index].history.findIndex(el => el.id === historyId);
+        return state.bills[index].history[historyIndex];
+    }
     return state.bills[index];
 }
 
 export const editBill = function(id, formData) {
     const selectedBill = getID(id)
-    const dueDateFormat = new Date(formData.dueDate + " 00:01:00");
-    selectedBill = {
-        name: formData.title,
-        amount: formData.amount,
-        dueDate: {
-            fullDate: dueDateFormat,
-            year: dueDateFormat.getFullYear(),
-            month: (dueDateFormat.getMonth() + 1),
-            day: dueDateFormat.getDate(),
-        },
-        ...(formData.reoccuring && {reoccuring: formData.reoccuring}),
+    console.log(formData);
+    const dueDateFormat = (formData.dueDate) ? new Date(formData.dueDate + " 00:01:00") : new Date(selectedBill.dueDate + " 00:01:00")
+    if(formData.title) selectedBill.name = formData.title;
+    if(formData.amount) selectedBill.amount = formData.amount;
+    selectedBill.dueDate = {
+        fullDate: dueDateFormat,
+        year: dueDateFormat.getFullYear(),
+        month: (dueDateFormat.getMonth() + 1),
+        day: dueDateFormat.getDate(),
     }
-    console.log(selectedBill, state.bills);
+    selectedBill.reoccuring = formData.reoccuring;
+    localStorageBills();
+}
+
+export const historyEditBill = function(id, historyid, newamount) {
+    const selectedItem = getID(id, historyid)
+    if(newamount) selectedItem.paid = newamount;
 }
 
 export const billPaydToggle = function(selectedBill) {
@@ -138,7 +150,7 @@ const localStorageBills = function() {
 }
 
 // For Deleting Bills from List / Storage (Not Implemented Yet)
-const removeBill = function(id) {
+export const removeBill = function(id) {
     const index = state.bills.findIndex(el => el.id === id);
     state.bills.splice(index, 1);
     localStorageBills();

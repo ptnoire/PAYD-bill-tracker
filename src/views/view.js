@@ -33,13 +33,21 @@ export class View {
         this._backdrop.classList.add('hidden');
     }
 
-    addHandlerBillSubmit(handler) {
+    addHandlerBillSubmit(handler, id) {
         this.inputForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const dataArr = new FormData(this);
             const data = Object.fromEntries(dataArr)
-            handler(data);
+            handler(data, id);
             // Clear Input Field!!
+        })
+    }
+
+    addHandlerShowModal(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            const link = e.target.closest('.cancel_btn');
+            if(!link) return
+            handler();
         })
     }
 }

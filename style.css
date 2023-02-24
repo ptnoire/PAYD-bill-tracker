@@ -76,6 +76,10 @@ h2 {
     margin-left: auto;
 }
 
+.upload {
+    padding: 10px;
+}
+
 .main_buttons {
     margin-top: 1em;
     margin-left: 5%;
@@ -202,6 +206,11 @@ h2 {
 
 .bill__button-row {
     text-align: right;
+}
+
+.btn_row {
+    display: inline;
+    padding: 10px;
 }
 
 .bill__item {

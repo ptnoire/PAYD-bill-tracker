@@ -9,6 +9,8 @@ class ListView extends View {
     inputForm = INPUT_FORM;
 
     // Maybe clean up all this repeated code?
+
+    // Payd Button Handler
     addHandlerPaydButton(handler) {
         this._parentElement.addEventListener('click', function(e) {
             e.preventDefault();
@@ -20,6 +22,7 @@ class ListView extends View {
         })
     }
 
+    // History Button Handler
     addHandlerHistoryButton(handler) {
         this._parentElement.addEventListener('click', function(e) {
             e.preventDefault();
@@ -31,6 +34,7 @@ class ListView extends View {
         })
     }
 
+    // Edit Button Handler
     addHandlerEditButton(handler) {
         this._parentElement.addEventListener('click', function(e) {
             e.preventDefault();
@@ -61,6 +65,7 @@ class ListView extends View {
         `
     }
 
+    // If we are running logic on a bill, we will update the DOM instead of re-rendering the entire list.
     _refreshMarkup(specificBill) {
         const billElement = document.querySelector(`[data-bill_id="${specificBill.id}"]`);
         billElement.innerHTML = '';
@@ -79,7 +84,9 @@ class ListView extends View {
             </div>
         `
     }
+
     reloadLocalStorage(date, data) {
+        this._clear();
         data.bills.forEach(el => {
             // Ok ashamed a bit about this, I don't want to refactor how render works which takes in the master object of state, then pulls from the state.bill object, sue me.
 
@@ -92,7 +99,7 @@ class ListView extends View {
 
     billLogic(date, bill, specificBill) {
         // if specificBill is passed as an argument, it will run the bill logic on a specific bill, otherwise it will process the bill from the model.state.bill (which is just a current addition, before it is pushed into the bills array).
-        
+
         if(specificBill) this._refreshMarkup(specificBill);
         const elem = document.querySelector(`[data-bill_id="${specificBill ? specificBill.id : bill.bill.id}"]`);
         const btnElement = elem.querySelectorAll('.btn');
@@ -115,6 +122,7 @@ class ListView extends View {
 
             if (specificBill && specificBill.payd === false) {
                 elem.classList.remove('payd');
+                elem.classList.remove('bill_due');
                 btnElement.forEach(el => el.classList.remove('btn-p'));
                 if(date.currentDate.day === +dueDateExtract && monthMatch && yearMatch) {
                     elem.classList.add('bill_due');
