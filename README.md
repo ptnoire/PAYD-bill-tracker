@@ -18,3 +18,8 @@ I want the user experience to be very satisfying, I've always thought about payi
 * Landing Page : I have a thought that the landing page should be a nice marketable page for users to understand the point of a local storage bill tracker and give a nice presentation on why they should use it, and maybe even who I am.
 * Finish Styling : This is going to be a work in progress for awhile of course, I bounce back and forth between front end design and back end.
 * Gather User Experiences to improve app : You already know what this is, if you've cloned this and tried it out, please let me know. Coding can make one be a hermit and not think outside of the user experience.
+
+## How is the Progress?
+Well, there has been far more bugs and weirdness than I expected but I am set out on making this a great app experience. The majority of the work (and you can check the commits) have been fixing bugs that have arisen. Luckily the structure of the code is pretty solid, adding new features and fixing bugs have been pretty easy. The bugs took long because I had to track down what was going on.
+
+We should be seeing a launch of the app soon, I am excited to show it off.
