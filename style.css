@@ -189,6 +189,16 @@ h2 {
     transition: all 0.5s;
 }
 
+.confirm_h3 {
+    margin-top: 10%;
+}
+
+.confirm_h2,
+.btn_confirm,
+.confirm_h3 {
+    text-align: center;
+}
+
 .hidden {
     visibility: hidden;
     opacity: 0;

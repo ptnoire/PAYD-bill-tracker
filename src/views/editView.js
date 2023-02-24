@@ -18,6 +18,7 @@ class EditView extends View {
     }
 
     addHandlerDelete(handler, id) {
+        console.log(this._parentElement);
         this._parentElement.addEventListener('click', function(e) {
             e.preventDefault();
             const link = e.target.closest('.delete_btn')

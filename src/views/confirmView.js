@@ -30,8 +30,9 @@ class ConfirmView extends View {
         this.scrollToTop();
         if(this._parentElement.classList.contains('hidden')) this.showModal();
         return `
-        <h2>Are you sure you want to delete: ${this.data.name}'s information?</h2>
-        <div class="btn_row">
+        <h3 class="confirm_h3">Are you sure you want to delete</h3>
+        <h2 class="confirm_h2">${this.data.name}'s information?</h2>
+        <div class="btn_confirm">
             <button class="btn delete_btn">Delete</button>
             <button class="btn cancel_btn">Cancel</button>
         </div>

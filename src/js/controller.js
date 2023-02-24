@@ -4,6 +4,7 @@ import historyView from "../views/historyView.js";
 import editView from "../views/editView.js";
 import newBillView from "../views/newBillView.js";
 import historyEditView from "../views/historyEditView.js";
+import confirmView from "../views/confirmView.js";
 import * as model from "./model.js"
 
 // Debugging Purposes
@@ -27,12 +28,19 @@ const editBillControl = function(formData, id) {
 const editControl = (id) => {
     editView.render(model.getID(id));
     editView.addHandlerBillSubmit(editBillControl, id);
-    editView.addHandlerDelete(deleteControl, id);
+    editView.addHandlerDelete(deleteConfirm, id);
 }
+
+const deleteConfirm = (id) => {
+    confirmView.render(model.getID(id));
+    confirmView.addHandlerDelete(deleteControl, id);
+    confirmView.addHandlerShowModal(backdropClose);
+};
 
 const deleteControl = (id) => {
     model.removeBill(id);
     listView.reloadLocalStorage(model.date, model.state);
+    backdropClose();
     editView.showModal();
 }
 
