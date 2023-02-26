@@ -50,9 +50,11 @@ class ListView extends View {
         return `
         <li class="bill__item" data-bill_id="${this.data.bill.id}">
             <h1>${this.data.bill.name}</h1>
-            <h3>Amount Due: ${this.data.bill.amount}</h3>
-            <h3>Due Date: ${this.data.bill.dueDate.year}-${this.data.bill.dueDate.month}-${this.data.bill.dueDate.day}</h3>
-            <h3>${this.data.bill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+            <div class="list__div">
+                <h3><span class="list__label">Amount Due:</span> ${this.data.bill.amount}</h3>
+                <h3><span class="list__label">Due Date:</span> ${this.data.bill.dueDate.year}-${this.data.bill.dueDate.month}-${this.data.bill.dueDate.day}</h3>
+                <h3>${this.data.bill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+            </div>
             <div class="bill__button-row">
                 <button class="btn payd__button">Payd!</button>
                 <button class="btn history__button">View History</button>
@@ -71,9 +73,11 @@ class ListView extends View {
         billElement.innerHTML = '';
         billElement.innerHTML = `
             <h1>${specificBill.name}</h1>
-            <h3>Amount Due: ${specificBill.amount}</h3>
-            <h3>Due Date: ${specificBill.dueDate.year}-${specificBill.dueDate.month}-${specificBill.dueDate.day}</h3>
-            <h3>${specificBill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+            <div class="list__div">
+                <h3><span class="list__label">Amount Due:</span> ${specificBill.amount}</h3>
+                <h3><span class="list__label">Due Date:</span> ${specificBill.dueDate.year}-${specificBill.dueDate.month}-${specificBill.dueDate.day}</h3>
+                <h3>${specificBill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+            </div>
             <div class="bill__button-row">
                 <button class="btn payd__button">Payd!</button>
                 <button class="btn history__button">View History</button>

@@ -1,4 +1,3 @@
-import listView from "../views/listView.js";
 
 
 export let date = {
@@ -77,11 +76,11 @@ export const getID = function(id, historyId = false) {
 
 export const editBill = function(id, formData) {
     const selectedBill = getID(id)
-    console.log(formData);
-    const dueDateFormat = (formData.dueDate) ? new Date(formData.dueDate + " 00:01:00") : new Date(selectedBill.dueDate + " 00:01:00")
+    const dueDateFormat = new Date(formData.dueDate + " 00:01:00")
+    
     if(formData.title) selectedBill.name = formData.title;
     if(formData.amount) selectedBill.amount = formData.amount;
-    selectedBill.dueDate = {
+    if(formData.duedate) selectedBill.dueDate = {
         fullDate: dueDateFormat,
         year: dueDateFormat.getFullYear(),
         month: (dueDateFormat.getMonth() + 1),
@@ -162,10 +161,10 @@ export const clearLocalStorageBills = function() {
     localStorage.clear('bills');
 }
 
-const init = function() {
+// Init, pull from storage.
+(() => {
     const history = localStorage.getItem('bills');
     if(history) {
         state.bills = JSON.parse(history)
     };
-}
-init();
+})();

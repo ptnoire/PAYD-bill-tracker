@@ -33,12 +33,12 @@ class NewBillView extends View {
         <form class="upload" id="upload">
             <input class="text__field" id="title" name="title" type="text" placeholder="Insert Bill Name Here" required></input>
             <input class="text__field" id="amount"  name="amount" type="number" placeholder="Insert Cost of Bill Here" required></input>
-            <input class="text__field" id="date"  name="dueDate" type="date" required></input>
+            <input class="text__field dateBox" id="date"  name="dueDate" type="date" required></input>
             <input id="reoccuring" name="reoccuring" type="checkbox" checked="checked">Reoccuring?</input>
-            <button class="btn btn--submit">Submit</button>
+            <button class="btn btn-p btn--submit">Submit</button>
         </form>
         <div class="btn_row">
-            <button class="btn cancel_btn">Cancel</button>
+            <button class="btn btn-p cancel_btn">Cancel</button>
         </div>
         `
     }

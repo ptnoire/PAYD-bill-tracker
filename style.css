@@ -4,7 +4,7 @@
     --due-red: #e91313;
     --payd-border: linear-gradient(to left, #00C853, #B2FF59);
     --due-border: linear-gradient(to left, #e91313, #fe4a4a);
-    --normal-border: linear-gradient(to left, #c5dec2, #a5d7a4);
+    --normal-border: linear-gradient(to left, #d1dbd0, #a1fba0);
     --background-black: rgb(29, 29, 29);
 }
 
@@ -92,6 +92,19 @@ h2 {
     padding-bottom: 20px;
 }
 
+.text__field {
+    background-color: var(--background-black);
+    color: var(--text-color);
+    height: 30px;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: var(--payd-border);
+}
+
+.dateBox {
+    height: 31.5px;
+}
+
 .mBtn {
     margin-left: 5px;
 }
@@ -139,7 +152,7 @@ h2 {
     border-image-slice: 1;
     border-image-source: var(--payd-border);
     box-shadow: 0 10px 10px -4px rgb(0, 0, 0);
-    width: 40%;
+    width: 50%;
     transition: all .5s;
 }
 
@@ -214,6 +227,17 @@ h2 {
     border-bottom: 0;
 }
 
+.list__div {
+    margin-right: 40%;
+    margin-left: 2%;
+    margin-top: 15px;
+}
+
+.list__label {
+    font-family: 'Comfortaa', cursive;
+    padding-right: 25px;
+}
+
 .bill__button-row {
     text-align: right;
 }
@@ -224,7 +248,7 @@ h2 {
 }
 
 .bill__item {
-    transition: 1s;
+    transition: all 1s;
     padding-left: 50px;
     padding-bottom: 10px;
     padding-right: 50px;

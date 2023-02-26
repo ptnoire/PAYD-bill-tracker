@@ -18,9 +18,8 @@ class EditView extends View {
     }
 
     addHandlerDelete(handler, id) {
-        console.log(this._parentElement);
         this._parentElement.addEventListener('click', function(e) {
-            e.preventDefault();
+            // e.preventDefault();
             const link = e.target.closest('.delete_btn')
             if(!link) return;
             handler(id)
@@ -36,13 +35,13 @@ class EditView extends View {
         <form class="upload" id="modify">
             <input class="text__field" name="title" type="text" placeholder="${this.data.name}"></input>
             <input class="text__field" name="amount" type="number" placeholder="${this.data.amount}"></input>
-            <input class="text__field" name="dueDate" type="date"></input>
-            <input name="reoccuring" type="checkbox" ${this.data.reoccuring ? `value="${this.data.reoccuring}"` : ""}>Reoccuring?</input>
-            <button class="btn btn--submit">Submit</button>
+            <input class="text__field dateBox" name="dueDate" type="date"></input>
+            <input name="reoccuring" type="checkbox" ${this.data.reoccuring ? `checked="${this.data.reoccuring}"` : ""}>Reoccuring?</input>
+            <button class="btn btn-p btn--submit">Submit</button>
         </form>
         <div class="btn_row">
-            <button class="btn delete_btn">Delete</button>
-            <button class="btn cancel_btn">Cancel</button>
+            <button class="btn btn-p delete_btn">Delete</button>
+            <button class="btn btn-p cancel_btn">Cancel</button>
         </div>
         `
     }
