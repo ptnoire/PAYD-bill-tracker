@@ -17,15 +17,6 @@ class EditView extends View {
         this.inputForm = this._parentElement.querySelector('.upload');
     }
 
-    addHandlerDelete(handler, id) {
-        this._parentElement.addEventListener('click', function(e) {
-            // e.preventDefault();
-            const link = e.target.closest('.delete_btn')
-            if(!link) return;
-            handler(id)
-        })
-    }
-
     _generateMarkup() {
         this._clear();
         this.scrollToTop();

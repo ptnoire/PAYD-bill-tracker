@@ -98,7 +98,31 @@ class ListView extends View {
             this.render(objectWorkAround)
             this.billLogic(date, data, el);
         });
+    }
 
+    sortRender(date, data) {
+        this._clear();
+        data.forEach(el => {
+            const newMarkup = `        
+            <li class="bill__item" data-bill_id="${el.id}">
+            <h1>${el.name}</h1>
+            <div class="list__div">
+                <h3><span class="list__label">Amount Due:</span> ${el.amount}</h3>
+                <h3><span class="list__label">Due Date:</span> ${el.dueDate.year}-${el.dueDate.month}-${el.dueDate.day}</h3>
+                <h3>${el.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+            </div>
+            <div class="bill__button-row">
+                <button class="btn payd__button">Payd!</button>
+                <button class="btn history__button">View History</button>
+                <button class="btn modify_button">Edit Bill</button>
+            </div>
+            <div class="edit_row">
+
+            </div>
+        </li>`
+            this._parentElement.insertAdjacentHTML('beforeend', newMarkup);
+            this.billLogic(date, data, el)
+        })
     }
 
     billLogic(date, bill, specificBill) {

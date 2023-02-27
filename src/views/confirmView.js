@@ -16,22 +16,21 @@ class ConfirmView extends View {
         this._parentElement.insertAdjacentHTML('afterbegin', markup);
     }
 
-    addHandlerDelete(handler, id) {
+    addHandlerDelete(handler, id, historyId) {
         this._parentElement.addEventListener('click', function(e) {
             e.preventDefault();
             const link = e.target.closest('.delete_btn')
             if(!link) return;
-            handler(id)
+            handler(id, historyId)
         })
     }
 
     _generateMarkup() {
         this._clear();
-        this.scrollToTop();
         if(this._parentElement.classList.contains('hidden')) this.showModal();
         return `
         <h3 class="confirm_h3">Are you sure you want to delete</h3>
-        <h2 class="confirm_h2">${this.data.name}'s information?</h2>
+        <h2 class="confirm_h2">${this.data.name ? this.data.name : this.data.title}'s information?</h2>
         <div class="btn_confirm">
             <button class="btn delete_btn">Delete</button>
             <button class="btn cancel_btn">Cancel</button>

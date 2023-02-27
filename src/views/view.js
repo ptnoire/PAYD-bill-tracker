@@ -39,7 +39,6 @@ export class View {
             const dataArr = new FormData(this);
             const data = Object.fromEntries(dataArr)
             handler(data, id);
-            // Clear Input Field!!
         })
     }
 
@@ -48,6 +47,14 @@ export class View {
             const link = e.target.closest('.cancel_btn');
             if(!link) return
             handler();
+        })
+    }
+
+    addHandlerDelete(handler, id, historyId) {
+        this._parentElement.addEventListener('click', function(e) {
+            const link = e.target.closest('.delete_btn')
+            if(!link) return;
+            handler(id, historyId)
         })
     }
 }

@@ -44,6 +44,18 @@ class HistoryEditView extends View {
         })
     }
 
+    addHandlerShowModal(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            const link = e.target.closest('.cancel_btn');
+            if(!link) return
+            const target = e.target.closest('.bill__item_history');
+            const dataid = +target.dataset.history_id;
+            const masterBill = e.target.closest('ul')
+            const billid = +masterBill.dataset.billhistory_id;
+            handler(billid, dataid);
+        })
+    }
+
     _clear() {
         this._childElement.innerHTML = '';
     }
@@ -55,7 +67,7 @@ class HistoryEditView extends View {
         <form id="upload">
             <input class="text__field" id="amount"  name="amount" type="number" placeholder="Amount Paid: ${this.data.paid}" required></input>
             <button class="btn btn--submit">Submit</button>
-            <button class="btn btn--delete">Delete Entry</button>
+            <button class="btn delete_btn">Delete Entry</button>
         </form>
         <button class="btn cancel_btn">Cancel</button>
         `

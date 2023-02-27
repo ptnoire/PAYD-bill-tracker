@@ -1,5 +1,4 @@
 
-
 export let date = {
     currentDate: {
         year: 0,
@@ -141,18 +140,59 @@ function incrementMonthAndRetainDate(date) {
     newDate.setMonth(newDate.getMonth() + 1);
     return newDate;
   }
-  
+
+export const sortList = function(parameter) {
+    if(parameter === 'Sort List') return state.bills;
+
+    if (parameter === 'Lowest Cost')
+    return state.bills.sort((a, b) => a.amount - b.amount);
+
+    if (parameter === 'Highest Cost')
+    return state.bills.sort((a, b) => b.amount - a.amount);
+
+    if (parameter === 'Closest Date')
+    return state.bills.sort((a,b) => dateComparison(a, b));
+    
+    if (parameter === 'Ascending Name')
+    return state.bills.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
+}
+
+const dateComparison = function(a, b) {
+    const firstDate = new Date(a.dueDate.fullDate).getTime();
+    const secondDate = new Date(b.dueDate.fullDate).getTime();
+    return firstDate - secondDate;
+}
+
+
+
+
 
 // Setting the state.bills array to local storage for persistance.
 const localStorageBills = function() {
     localStorage.setItem('bills', JSON.stringify(state.bills));
 }
 
-// For Deleting Bills from List / Storage (Not Implemented Yet)
 export const removeBill = function(id) {
     const index = state.bills.findIndex(el => el.id === id);
     state.bills.splice(index, 1);
     localStorageBills();
+}
+
+export const removeHistoryItem = function(id, historyId) {
+    
+    const specificBill = getID(id)
+    
+    const index = specificBill.history.findIndex(el => el.id === historyId);
+    // if (index >= 0) specificBill.history.splice(index, 1);
+    
+    localStorageBills();
+    
 }
 
 // Testing Purposes (Just call it once to delete storage)
@@ -161,10 +201,10 @@ export const clearLocalStorageBills = function() {
     localStorage.clear('bills');
 }
 
-// Init, pull from storage.
-(() => {
+const init = function() {
     const history = localStorage.getItem('bills');
     if(history) {
         state.bills = JSON.parse(history)
     };
-})();
+}
+init();
