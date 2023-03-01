@@ -8,6 +8,7 @@ class ConfirmView extends View {
     _parentElement = MODAL;
     _backdrop = BACKDROP;
     _deleteButton;
+    _cancelButton;
 
     render(data) {
         if(!data) return;
@@ -26,6 +27,14 @@ class ConfirmView extends View {
             handler(id, historyId)
         })
     }
+
+    addHandlerShowModal(handler) {
+        this._cancelButton = this._parentElement.querySelector('.cancel_btn');
+        this._cancelButton.addEventListener('click', function(e) {
+            handler();
+        })
+    }
+    
 
     _generateMarkup() {
         this._clear();

@@ -90,6 +90,7 @@ const historyEditControl = (id, historyId) => {
 const confirmDeleteHistory = (id, historyId) => {
     confirmView.render(model.getID(id, historyId));
     confirmView.addHandlerDelete(deleteHistoryControl, id, historyId);
+    confirmView.addHandlerShowModal(backdropClose);
 }
 
 const deleteHistoryControl = (id, historyId) => {

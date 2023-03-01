@@ -96,7 +96,7 @@ export const historyEditBill = function(id, historyid, newamount) {
 
 export const billPaydToggle = function(selectedBill) {
     let newDate = (selectedBill.reoccuring ? new Date(selectedBill.dueDate.fullDate) : new Date(date.currentDate.fullDate));
-
+    
     const historyReciept = {
         title: selectedBill.name,
         paid: selectedBill.amount,
@@ -140,6 +140,19 @@ function incrementMonthAndRetainDate(date) {
     newDate.setMonth(newDate.getMonth() + 1);
     return newDate;
   }
+
+// export const daysLeftUntilDue = function(dueDate) {
+
+//     const otherDate = dueDate;
+//     const today = date.currentDate.fullDate;
+
+//     const timeDiff = otherDate.getTime() - today.getTime();
+
+//     const daysUntilDue = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+//     const weeksUntilDue = Math.ceil(daysUntilDue / 7);
+//     console.log("Due date from other date (days): " + daysUntilDue);
+//     console.log("Due date from other date (weeks): " + weeksUntilDue);
+// }
 
 export const sortList = function(parameter) {
     if(parameter === 'Sort List') return state.bills;

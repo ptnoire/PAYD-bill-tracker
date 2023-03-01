@@ -53,7 +53,7 @@ class ListView extends View {
             <div class="list__div">
                 <h3><span class="list__label">Amount Due:</span> ${this.data.bill.amount}</h3>
                 <h3><span class="list__label">Due Date:</span> ${this.data.bill.dueDate.year}-${this.data.bill.dueDate.month}-${this.data.bill.dueDate.day}</h3>
-                <h3>${this.data.bill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+                <h3>${this.data.bill.reoccuring ? '📅 Monthly Bill' : ''}</h3>
             </div>
             <div class="bill__button-row">
                 <button class="btn payd__button">Payd!</button>
@@ -76,7 +76,7 @@ class ListView extends View {
             <div class="list__div">
                 <h3><span class="list__label">Amount Due:</span> ${specificBill.amount}</h3>
                 <h3><span class="list__label">Due Date:</span> ${specificBill.dueDate.year}-${specificBill.dueDate.month}-${specificBill.dueDate.day}</h3>
-                <h3>${specificBill.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+                <h3>${specificBill.reoccuring ? '📅 Monthly Bill' : ''}</h3>
             </div>
             <div class="bill__button-row">
                 <button class="btn payd__button">Payd!</button>
@@ -109,7 +109,7 @@ class ListView extends View {
             <div class="list__div">
                 <h3><span class="list__label">Amount Due:</span> ${el.amount}</h3>
                 <h3><span class="list__label">Due Date:</span> ${el.dueDate.year}-${el.dueDate.month}-${el.dueDate.day}</h3>
-                <h3>${el.reoccuring ? 'Reoccuring Bill' : ''}</h3>
+                <h3>${el.reoccuring ? '📅 Monthly Bill' : ''}</h3>
             </div>
             <div class="bill__button-row">
                 <button class="btn payd__button">Payd!</button>

@@ -10,22 +10,8 @@
 
 @font-face {
     font-family: Heaters;
-    src: url(Heaters.otf);
+    src: url(./src/Heaters.otf);
   }
-
-.pt_top {
-    margin-top: 30vh;
-    text-align: center;
-    margin-left: 5px;
-    color: var(--text-color);
-}
-
-.pt_sig {
-    font-family: Heaters;
-    font-size: 50px;
-    text-decoration: none;
-    color: var(--text-color);
-}
 
 body {
     height: 100vh;
@@ -48,6 +34,7 @@ h2 {
     text-decoration-color: var(--payd-green);
 }
 
+/* ===> BUTTONS <=== */
 .btn {
     transition: .5s;
     background-color: var(--background-black);
@@ -72,11 +59,8 @@ h2 {
     border-image-source: var(--due-border);
 }
 
-.close_edit {
-    margin-left: auto;
-}
-
-.upload {
+.btn_row {
+    display: inline;
     padding: 10px;
 }
 
@@ -92,6 +76,15 @@ h2 {
     padding-bottom: 20px;
 }
 
+.mBtn {
+    margin-left: 5px;
+}
+/* ============================== */
+
+.upload {
+    padding: 10px;
+}
+
 .text__field {
     background-color: var(--background-black);
     color: var(--text-color);
@@ -103,10 +96,6 @@ h2 {
 
 .dateBox {
     height: 31.5px;
-}
-
-.mBtn {
-    margin-left: 5px;
 }
 
 .current__date {
@@ -175,8 +164,18 @@ h2 {
     box-shadow: 0 10px 10px -4px rgb(0, 0, 0);
 }
 
-.history__modal li {
-    list-style: decimal;
+.modal li {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: "💸: ";
+    list-style-position: outside;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: var(--payd-border);
+    margin-bottom: 10px;
+    background-image: linear-gradient(150deg, rgba(34,34,34,1) 0%, rgba(42,42,42,1) 70%, rgba(52,247,78,1) 94%);
 }
 
 .close_modal {
@@ -242,20 +241,19 @@ h2 {
     text-align: right;
 }
 
-.btn_row {
-    display: inline;
-    padding: 10px;
-}
+
 
 .bill__item {
     transition: all 1s;
     padding-left: 50px;
     padding-bottom: 10px;
     padding-right: 50px;
+    padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     list-style-type: none;
+    line-height: .5;
     color: var(--text-color);
     background: var(--background-black);
     border: 10px solid;
@@ -293,3 +291,19 @@ h2 {
     transition: 1s;
     text-decoration-color: var(--payd-green);
 }
+
+/* ==> PT SIGNATURE */
+.pt_top {
+    margin-top: 30vh;
+    text-align: center;
+    margin-left: 5px;
+    color: var(--text-color);
+}
+
+.pt_sig {
+    font-family: Heaters;
+    font-size: 50px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+/* ============================== */

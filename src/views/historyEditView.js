@@ -64,7 +64,7 @@ class HistoryEditView extends View {
     _generateMarkup() {
         this._clear();
         return `
-        <h2>Editting: ${this.data.title}'s History for ${this.data.date.year}-${this.data.date.month}-${this.data.date.day}</h2>
+        <h3>Edit : ${this.data.title}'s History for ${this.data.date.year}-${this.data.date.month}-${this.data.date.day}</h3>
         <form id="upload">
             <input class="text__field" id="amount"  name="amount" type="number" placeholder="Amount Paid: ${this.data.paid}" required></input>
             <button class="btn btn--submit">Submit</button>
