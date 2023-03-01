@@ -51,9 +51,8 @@ export class View {
     }
 
     addHandlerDelete(handler, id, historyId) {
-        this._parentElement.addEventListener('click', function(e) {
-            const link = e.target.closest('.delete_btn')
-            if(!link) return;
+        this._deleteButton = this._parentElement.querySelector('.delete_btn');
+        this._deleteButton.addEventListener('click', function(e) {
             handler(id, historyId)
         })
     }

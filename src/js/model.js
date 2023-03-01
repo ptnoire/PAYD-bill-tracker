@@ -189,7 +189,7 @@ export const removeHistoryItem = function(id, historyId) {
     const specificBill = getID(id)
     
     const index = specificBill.history.findIndex(el => el.id === historyId);
-    // if (index >= 0) specificBill.history.splice(index, 1);
+    specificBill.history.splice(index, 1);
     
     localStorageBills();
     

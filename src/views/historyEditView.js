@@ -8,6 +8,8 @@ class HistoryEditView extends View {
     _parentElement = MODAL;
     _childElement;
     _backdrop = BACKDROP;
+    _deleteButton;
+    _cancelButton;
 
     render(data) {
         this.data = data;
@@ -45,9 +47,8 @@ class HistoryEditView extends View {
     }
 
     addHandlerShowModal(handler) {
-        this._parentElement.addEventListener('click', function(e) {
-            const link = e.target.closest('.cancel_btn');
-            if(!link) return
+        this._cancelButton = this._parentElement.querySelector('.cancel_btn');
+        this._cancelButton.addEventListener('click', function(e) {
             const target = e.target.closest('.bill__item_history');
             const dataid = +target.dataset.history_id;
             const masterBill = e.target.closest('ul')

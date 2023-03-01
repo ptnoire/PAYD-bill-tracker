@@ -7,6 +7,7 @@ import { View } from "./view.js";
 class ConfirmView extends View {
     _parentElement = MODAL;
     _backdrop = BACKDROP;
+    _deleteButton;
 
     render(data) {
         if(!data) return;
@@ -17,7 +18,8 @@ class ConfirmView extends View {
     }
 
     addHandlerDelete(handler, id, historyId) {
-        this._parentElement.addEventListener('click', function(e) {
+        this._deleteButton = this._parentElement.querySelector('.delete_btn');
+        this._deleteButton.addEventListener('click', function(e) {
             e.preventDefault();
             const link = e.target.closest('.delete_btn')
             if(!link) return;

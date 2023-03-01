@@ -8,6 +8,7 @@ class EditView extends View {
     _parentElement = BILL_FORM_BOX;
     inputForm = INPUT_FORM;
     _billElement = BILL_LIST;
+    _deleteButton;
 
     render(data) {
         if(!data) return;

@@ -84,6 +84,7 @@ const historyControl = (id) => historyView.render(model.getID(id))
 const historyEditControl = (id, historyId) => {
     historyEditView.render(model.getID(id, historyId))
     historyEditView.addHandlerDelete(confirmDeleteHistory, id, historyId);
+    historyEditView.addHandlerShowModal(newHistoryEdit);
 }
 
 const confirmDeleteHistory = (id, historyId) => {
@@ -92,7 +93,6 @@ const confirmDeleteHistory = (id, historyId) => {
 }
 
 const deleteHistoryControl = (id, historyId) => {
-    console.log('worked');
     model.removeHistoryItem(id, historyId);
     backdropClose();
 }
@@ -131,6 +131,5 @@ const sortChange = (para) => {
     historyEditView.addHandlerHistoryEditButton(historyEditControl);
     editView.addHandlerShowModal(editModalToggle);
     historyEditView.addHandlerEditHistoryItem(newHistoryEdit);
-    historyEditView.addHandlerShowModal(newHistoryEdit);
     sortView.addHandlerSortEvent(sortChange);
 })();
