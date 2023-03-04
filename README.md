@@ -78,11 +78,17 @@ Or you can delete the history reciept, let's say you clicked `PAYD` on accident.
 * ~~Edit Bills : This should be fairly easy to do, just on the list, edit amounts, names, dates, delete etc.~~ Note: Lol I said this was going to be easy.
 * Import / Export Data : Because the nature of this app will be local storage, I am implementing a way to export the data so that you can upload it to another device, machine etc. It will output the data in a coded string format (I learned something similar when working with World of Warcraft's Addon: weakauras, which I love). -A side note, I do know that this would mean data could leak and be exploited in this way, if someone wanted to figure out my cryptography to uncode the data, luckily this still requires no personal data at all but I will still keep this on the mind to ensure the best privacy for all users.
 * Landing Page : I have a thought that the landing page should be a nice marketable page for users to understand the point of a local storage bill tracker and give a nice presentation on why they should use it, and maybe even who I am.
-* Finish Styling : This is going to be a work in progress for awhile of course, I bounce back and forth between front end design and back end.
+* Finish Styling : ~~This is going to be a work in progress for awhile of course, I bounce back and forth between front end design and back end.~~
+* Finish Styling II : Redesign things to look better based on using this app over time, I think it looks good but it still looks primitive. We can do better.
+* Mobile CSS: Ok so time to finish the styling so it is responsive, shouldn't be that big of a deal just making sure it all looks nice and tight.
 * Get a 'days until x is due' function finished, display it in the list items, update with color schemes based on how close due date is due.
 * Gather User Experiences to improve app : You already know what this is, if you've cloned this and tried it out, please let me know. Coding can make one be a hermit and not think outside of the user experience.
 
 ## How is the Progress?
+March 3rd 2023: Wow. Hard to believe I have nearly finished a side project! Let's gooo! I've updated the readme to give a full explaination of the app, even though it is simple to use, sometimes people don't want to view the whole dang thing and just want to scroll through the images. That's fine by me!
+
+I've listed the things yet to finish, almost there. Ready for users to break apart the app and get that true user feedback. There have been a few mind breaking bugs in this app but conquering them has been an amazing feeling. Heck ya.
+
 Well, there has been far more bugs and weirdness than I expected but I am set out on making this a great app experience. The majority of the work (and you can check the commits) have been fixing bugs that have arisen. Luckily the structure of the code is pretty solid, adding new features and fixing bugs have been pretty easy. The bugs took long because I had to track down what was going on.
 
 We should be seeing a launch of the app soon, I am excited to show it off.
