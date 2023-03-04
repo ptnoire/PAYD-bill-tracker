@@ -47,6 +47,10 @@ class ListView extends View {
     }
 
     _generateMarkup() {
+        if(this.newUser === true) {
+            this._clear()
+            this.newUser = false;
+        }
         return `
         <li class="bill__item" data-bill_id="${this.data.bill.id}">
             <h1>${this.data.bill.name}</h1>
@@ -91,6 +95,10 @@ class ListView extends View {
 
     reloadLocalStorage(date, data) {
         this._clear();
+        if(data.bills.length === 0) {
+            this._parentElement.innerHTML = `<h1 class="new_Text">Looks like it's your first time here! Let's get started by adding a new bill at the top right! 😀</h1>`
+            this.newUser = true;
+        }
         data.bills.forEach(el => {
             // Ok ashamed a bit about this, I don't want to refactor how render works which takes in the master object of state, then pulls from the state.bill object, sue me.
 

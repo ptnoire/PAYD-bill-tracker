@@ -3,6 +3,7 @@ import { TOP_OF_PAGE } from "../js/config.js";
 export class View {
     _top = TOP_OF_PAGE;
     data;
+    newUser;
 
     render(data) {
         if(!data) return;

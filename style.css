@@ -14,7 +14,7 @@
   }
 
 body {
-    height: 100vh;
+    height: 60vh;
     background: rgb(64,64,64);
     background: linear-gradient(180deg, rgba(64,64,64,1) 0%, rgb(33, 33, 33) 52%, rgb(18, 18, 18) 100%);
     background-repeat: no-repeat;
@@ -23,7 +23,9 @@ body {
     padding-bottom: 500px;
 }
 
+a,
 a:visited {
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -80,7 +82,12 @@ h2 {
     margin-left: 5px;
 }
 /* ============================== */
-
+.new_Text {
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--text-color);
+    animation: bounce 1s ease-in-out alternate infinite;
+}
 .upload {
     padding: 10px;
 }
@@ -307,3 +314,22 @@ h2 {
     color: var(--text-color);
 }
 /* ============================== */
+
+@keyframes bounce {
+    0% {transform: translateY(0%);}
+    100% {transform: translateY(-10%);}
+}
+
+::-webkit-scrollbar {
+    height: 7px;
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background-black);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--payd-green);
+    border-radius: 30px;
+  }
