@@ -1,0 +1,23 @@
+{
+  "name": "payd",
+  "version": "1.0.0",
+  "description": "'No non-sense Bill Tracking App'",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptnoire/PAYD-bill-tracker.git"
+  },
+  "author": "PT Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptnoire/PAYD-bill-tracker/issues"
+  },
+  "homepage": "https://github.com/ptnoire/PAYD-bill-tracker#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
