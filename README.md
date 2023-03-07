@@ -89,6 +89,6 @@ March 3rd 2023: Wow. Hard to believe I have nearly finished a side project! Let'
 
 I've listed the things yet to finish, almost there. Ready for users to break apart the app and get that true user feedback. There have been a few mind breaking bugs in this app but conquering them has been an amazing feeling. Heck ya.
 
-Well, there has been far more bugs and weirdness than I expected but I am set out on making this a great app experience. The majority of the work (and you can check the commits) have been fixing bugs that have arisen. Luckily the structure of the code is pretty solid, adding new features and fixing bugs have been pretty easy. The bugs took long because I had to track down what was going on.
+Previous Note: Well, there has been far more bugs and weirdness than I expected but I am set out on making this a great app experience. The majority of the work (and you can check the commits) have been fixing bugs that have arisen. Luckily the structure of the code is pretty solid, adding new features and fixing bugs have been pretty easy. The bugs took long because I had to track down what was going on.
 
 We should be seeing a launch of the app soon, I am excited to show it off.
