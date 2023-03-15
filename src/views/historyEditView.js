@@ -66,7 +66,7 @@ class HistoryEditView extends View {
         return `
         <h3>Edit : ${this.data.title}'s History for ${this.data.date.year}-${this.data.date.month}-${this.data.date.day}</h3>
         <form id="upload">
-            <input class="text__field" id="amount"  name="amount" type="number" placeholder="Amount Paid: ${this.data.paid}" required></input>
+            <input class="text__field" id="amount"  name="amount" type="number" step="0.01" placeholder="Amount Paid: ${this.data.paid}" required></input>
             <button class="btn btn--submit">Submit</button>
             <button class="btn delete_btn">Delete Entry</button>
         </form>

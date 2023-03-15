@@ -26,7 +26,7 @@ class EditView extends View {
         <h2>Edit: ${this.data.name}'s Information</h2>
         <form class="upload" id="modify">
             <input class="text__field" name="title" type="text" placeholder="${this.data.name}"></input>
-            <input class="text__field" name="amount" type="number" placeholder="${this.data.amount}"></input>
+            <input class="text__field" name="amount" type="number" step="0.01" placeholder="${this.data.amount}"></input>
             <input class="text__field dateBox" name="dueDate" type="date"></input>
             <input name="reoccuring" type="checkbox" ${this.data.reoccuring ? `checked="${this.data.reoccuring}"` : ""}>Reoccuring?</input>
             <button class="btn btn-p btn--submit">Submit</button>

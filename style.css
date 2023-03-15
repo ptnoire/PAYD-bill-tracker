@@ -341,11 +341,20 @@ h2 {
 
   @media only screen and (max-width: 1000px) {
     .main_buttons {
+        display: grid;
+        
         margin-top: 1em;
         margin-left: 5%;
         margin-right: 5%;
-        display: flex;
-        align-items: baseline;
-        justify-content: space-evenly;
+    }
+
+    .btn {
+        transition: .5s;
+        background-color: var(--background-black);
+        color: var(--text-color);
+        padding: 6px;
+        border: 2px solid;
+        border-image-slice: 1;
+        border-image-source: var(--normal-border);
     }
   }
