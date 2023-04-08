@@ -9,6 +9,8 @@ The local storage idea comes from the fact that so many free websites and apps m
 
 I want the user experience to be very satisfying, I've always thought about paying bills as sort of a relief. When I was young and my family was poor, I remember getting to turn the lights back on or heating the house again. Though I would never wish these sort of memories on anyone else, they do inspire me to help others. So when a bill is 'payd' the UI will respond with some good vibes to make it less of a 'I hate paying bills experience' (as if, haha!) to more of a 'Nice!' feeling.
 
+Update 04/07 -- I am returning to finalize a lot of things in this project, mainly import/export and css stylings. I need to finish the date tracker as well, I found a few bugs along the way and then I am going to export this entire app to a react/prisma stack for a more modern feel. This should be incredibly easily given the architecture of this and I will always provide this method for those who do not wish to store or save their data. The larger version of this app with login and database structure is purely for my own projects to see if I can do it, I have no intention to scale it to something larger than a helpful app for users.
+
 ## How to Use Payd!
 <div align="center"><br>
 <b>Step 1:</b> Start by making a new bill, click the button `Submit New Bill` at the top right: <br><img src="https://i.imgur.com/NT9aBPJ.png" />
