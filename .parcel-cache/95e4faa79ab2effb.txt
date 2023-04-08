@@ -1,4 +1,4 @@
-4277
+4283
 92D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\node-gyp-build\bin.js133226964638839834 0
 88D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\@parcel\utils\src133226964688064561 1
 121D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\@parcel\core\test\PublicMutableBundleGraph.test.js133226964690803958 0
@@ -25,7 +25,7 @@
 101D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\@parcel\core\src\assetUtils.js133226964681274130 0
 122D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\mdb_copy.c133226964682933555 0
 117D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\caniuse-lite\data\features\intl-pluralrules.js133226964699398607 0
-62D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist133233683562691155 1
+62D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist133250057010875018 1
 156D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\@parcel\node-resolver-core\test\fixture\node_modules\package-browser-alias\browser.js133226964671932114 0
 61D:\Documents HDD\2022 Coding Education\Practice Room\Payd\src133226966640286337 1
 115D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\@parcel\source-map\parcel_sourcemap_node\src133226964689736356 1
@@ -1160,6 +1160,7 @@
 87D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\terser\lib\utils133226964682918653 1
 109D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\terser\lib\utils\first_in_statement.js133226964681786809 0
 104D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\domelementtype\lib\index.d.ts.map133226964662866502 0
+84D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.dcebd2f3.js.map133250057010870056 0
 97D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\svgo\plugins\reusePaths.js133226964687701232 0
 85D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\svgo\README.md133226964688966965 0
 106D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\node-addon-api\package-support.json133226964674696098 0
@@ -4271,8 +4272,13 @@
 86D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\.bin\terser.cmd133226964711536227 0
 86D:\Documents HDD\2022 Coding Education\Practice Room\Payd\node_modules\.bin\terser.ps1133226964711536227 0
 85D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\Comfortaa.1587918d.ttf133226969729453872 0
+85D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\Comfortaa.43cf340b.ttf133250056982531561 0
+83D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\Heaters.6f16e30e.otf133250056982596038 0
 83D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\Heaters.af85a9ae.otf133226969729781229 0
 81D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.3a01df49.css133233683560491342 0
+80D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.dcebd2f3.js133250057010678762 0
 80D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.e37f48ea.js133233683562646494 0
 84D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.e37f48ea.js.map133233683562686192 0
-73D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.html133233683562661391 0
+81D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.e8384192.css133250057010678762 0
+85D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.e8384192.css.map133250057010870056 0
+73D:\Documents HDD\2022 Coding Education\Practice Room\Payd\dist\index.html133250057010678762 0
